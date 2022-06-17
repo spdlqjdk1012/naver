@@ -61,3 +61,52 @@
 # dfs(0)
 # print(maximum)
 # print(minimum)
+
+N = int(input())
+A = list(map(int, input().split()))
+op = list(map(int, input().split()))
+opvis = [0]*4
+maximum = -10000000000
+minimum = 10000000000
+result = A[0]
+def operator(depth):
+    global result
+    global maximum
+    global minimum
+    if depth == N-1:
+        if result > maximum:
+            maximum = result
+        if result < minimum:
+            minimum = result
+        return
+    for i in range(4):
+        if opvis[i] == op[i]:
+            continue
+        opvis[i] += 1
+        if i == 0:
+            newresult = result
+            result += A[depth+1]
+            operator(depth+1)
+            result = newresult
+            opvis[i] -= 1
+        elif i == 1:
+            newresult = result
+            result -= A[depth+1]
+            operator(depth+1)
+            result = newresult
+            opvis[i] -= 1
+        elif i == 2:
+            newresult = result
+            result *= A[depth+1]
+            operator(depth+1)
+            result = newresult
+            opvis[i] -= 1            
+        elif i == 3:
+            newresult = result
+            result = int(result/A[depth+1])
+            operator(depth+1)
+            result = newresult
+            opvis[i] -= 1
+operator(0)
+print(maximum)
+print(minimum)
