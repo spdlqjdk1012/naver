@@ -1,58 +1,40 @@
-# https://www.acmicpc.net/problem/15658
-N = int(input()) 
-numArr = list(map(int, input().split()))
-oper = list(map(int, input().split())) # + - * /
+### 네이버 코테 스터디 
 
-minNum= int(1e9)
-maxNum = 0
-flag = False
-def dfs(indexNum, finalNum, oper):
-    global flag
-    global numArr
-    global minNum
-    global maxNum
-    if indexNum+1 >= N: 
-        if flag is False:
-            minNum= finalNum
-            maxNum = finalNum
-            flag = True
-        minNum = min(finalNum, minNum)
-        maxNum = max(finalNum, maxNum)
-        return
+# 1주차
+출석체크
+배열 돌리기 3
+트럭
+합이 0
+월드컵
+파이프 옮기기 2
+로봇
+이진 변환 반복하기
+게임 맵 최단거리
+풍선 터트리기
 
-    if oper[0] > 0:
-        tmp = finalNum + numArr[indexNum+1] 
-        oper[0] -= 1
-        dfs(indexNum+1, tmp, oper)
-        oper[0] += 1
+# 2주차
+점프 점프
+연산자 끼워넣기(2)
+단어 맞추기
+빌런 호석
+A와 B 2
+색종이 올려 놓기
+같이 눈사람 만들래?
+모음 사전
+JadenCase 문자열 만들기
+자물쇠와 열쇠
 
-    if oper[1] > 0:
-        tmp = finalNum - numArr[indexNum+1] 
-        oper[1] -= 1
-        dfs(indexNum+1, tmp, oper)
-        oper[1] += 1
+# 3주차
+팰린드롬 만들기
+안녕
+물통
+줄어드는 수
+배열 돌리기 4
+Two Dots
+개구쟁이 준석이
+수식 최대화
+괄호 회전하기
+스타 수열
 
-    if oper[2] > 0:
-        tmp = finalNum * numArr[indexNum+1] 
-        oper[2] -= 1
-        dfs(indexNum+1, tmp, oper)
-        oper[2] += 1
-
-    if oper[3] > 0:
-        tmp = int(finalNum / numArr[indexNum+1])
-        oper[3] -= 1
-        dfs(indexNum+1, tmp, oper)
-        oper[3] += 1
-dfs(0, numArr[0], oper)
-print(maxNum)
-print(minNum)
-
-
-"""
-[반례]
-3
-1 1 1
-0 2 0 0
--1
--1
-"""
+# 번외
+퍼즐 조각 채우기
