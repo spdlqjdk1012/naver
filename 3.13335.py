@@ -20,5 +20,4 @@ while True:
         if sum(bridge) + truck[0] <= L and len(bridge) < w:
             bridge.append(truck.pop(0))
             time.append(1)
-            stand = 1
     cnt += 1
