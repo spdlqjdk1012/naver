@@ -104,10 +104,11 @@ graph = []
 for i in range(N):
     graph.append(list(map(int, input().split())))
 CList = list(map(int, input().split()))
-for num in CList:
-    graph=copy.deepcopy(eval('cal'+str(num)+'()'))
+for num in CList:        
+    graph=eval('cal'+str(num)+'()')
     #sysout(graph)
-#graph = copy.deepcopy(cal6())
+
+# graph = copy.deepcopy(cal6())
 
 
 sysout(graph)
@@ -140,4 +141,3 @@ sysout(graph)
 # 4x3
 # 4x4
 # 4x5
-
